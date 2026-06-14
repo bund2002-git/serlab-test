@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Grocery ID</th>
+            </tr>
+            <tr th:each="groceryId : ${selecteditems.groceryIds}">
+                <td th:text="${groceryId}"></td>
+            </tr>
+        </table>
+        <p>Discount Applied: <span th:text="${totalDiscount}">0.0</span></p>
+        <p>Total Price: <span th:text="${totalPrice}">0.0</span></p>
+        <form action="#" method="post">
+            <button type="submit">Proceed to Payment</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Grocery App</p>
+    </footer>
+</body>
+</html>

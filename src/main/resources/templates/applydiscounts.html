@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply Discounts</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <header>
+        <h1>Apply Discounts</h1>
+    </header>
+    <main>
+        <form method="POST" action="/applydiscounts">
+            <section>
+                <h2>Available Coupons</h2>
+                <ul>
+                    <li th:each="coupon : ${applicableCoupons}">
+                        <label>
+                            <input type="checkbox" th:value="${coupon.id}" name="selectedCoupons" />
+                            <span th:text="${coupon.name}">Coupon Name</span> - 
+                            <span th:text="'Save $' + ${coupon.savings}">Savings</span>
+                        </label>
+                    </li>
+                </ul>
+            </section>
+            <button type="submit">Apply Discounts</button>
+        </form>
+        <div>
+            <a href="/groceries">Back to Groceries</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Grocery App</p>
+    </footer>
+</body>
+</html>

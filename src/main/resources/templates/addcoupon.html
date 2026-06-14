@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Coupon</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Optional -->
+</head>
+<body>
+    <header>
+        <h1>Add Coupon</h1>
+    </header>
+    <main>
+        <form action="#" method="post">
+            <div>
+                <label for="couponName">Coupon Name:</label>
+                <input type="text" id="couponName" name="couponName" placeholder="Enter coupon name" required>
+            </div>
+            <div>
+                <label for="savings">Savings:</label>
+                <input type="number" step="0.01" id="savings" name="savings" placeholder="Enter savings amount" required>
+            </div>
+            <div>
+                <label for="groceryItem">Applicable Grocery Item:</label>
+                <select id="groceryItem" name="groceryItem" required>
+                    <option th:each="item : ${groceryItems}" th:value="${item.id}" th:text="${item.name}"></option>
+                </select>
+            </div>
+            <div>
+                <button type="submit" name="action" value="add">Add Coupon</button>
+                <button type="button" onclick="window.location.href='/groceries'">Go Back</button> <!-- No validation -->
+            </div>
+        </form>
+        <div th:if="${successMessage}">
+            <p class="success" th:text="${successMessage}"></p>
+        </div>
+        <div th:if="${errorMessage}">
+            <p class="error" th:text="${errorMessage}"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Grocery App</p>
+    </footer>
+</body>
+</html>
