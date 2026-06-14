@@ -73,3 +73,6 @@ This application uses H2, an in-memory database. The console is auto-configured 
 - JDBC URL: `jdbc:h2:mem:jpagrocerydemo`
 - User Name: `ser421`
 - Password: `password`
+## this is computer B commit
+
+Test
